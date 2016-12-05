@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Mitgliederverwaltung.iml" filepath="$PROJECT_DIR$/Mitgliederverwaltung.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EAE.iml" filepath="$PROJECT_DIR$/EAE.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
