@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">Mitgliederverwaltung</string>
+    <string name="menuitem_edit">Edit</string>
+    <string name="menuitem_delete">Delete</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_vorname">Vorname</string>
+    <string name="hint_nummer_privat">Nummer Privat</string>
+    <string name="hint_nummer_mobil">Nummer Mobil</string>
+    <string name="hint_email">E-Mail</string>
+    <string name="hint_strasse">Straße</string>
+    <string name="hint_plz">PLZ</string>
+    <string name="hint_ort">Ort</string>
+    <string name="text_mitgliederstatus">Mitgliederstatus</string>
+    <string name="text_aktiv">aktiv</string>
+    <string name="text_passiv">passiv</string>
+    <string name="label_name">Name:</string>
+    <string name="label_vorname">Vorname:</string>
+    <string name="label_nummer_privat">Nummer Privat:</string>
+    <string name="label_nummer_mobil">Nummer Mobil:</string>
+    <string name="label_email">E-Mail:</string>
+    <string name="label_strasse">Straße:</string>
+    <string name="label_plz">PLZ:</string>
+    <string name="label_ort">Ort:</string>
+    <string name="confirm_title">Sind Sie sicher??</string>
+    <string name="confirm_message">Dies wird das Mitglied dauerhaft löschen</string>
+    <string name="button_abbrechen">Abbrechen</string>
+    <string name="button_loschen">Löschen</string>
+    <string name="mitglied_hinzugefuegt">Mitglied wurde hinzugefügt</string>
+    <string name="mitglied_nicht_hinzugefuegt">Mitglied wurde aufrund eines Fehlers nicht hinzugefügt</string>
+    <string name="mitglied_geaendert">Mitglied wurde geändert</string>
+    <string name="mitglied_nicht_geaendert">Mitglied wurde aufgrund eines Fehlers nicht geändert</string>
 </resources>

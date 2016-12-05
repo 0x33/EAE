@@ -6,25 +6,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class AddEdit extends AppCompatActivity {
 
-    FloatingActionButton add;
+    FloatingActionButton save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_add_edit);
 
-        add = (FloatingActionButton)findViewById(R.id.foating_add);
+        save = (FloatingActionButton)findViewById(R.id.foating_save);
 
-        add.setOnClickListener(handler);
+        save.setOnClickListener(handler);
     }
 
     View.OnClickListener handler = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(v.getId() == add.getId()){
-                Intent intent = new Intent(getApplicationContext(), AddEdit.class);
+            if(v.getId() == save.getId()){
+                Intent intent = new Intent(getApplicationContext(), Details.class);
                 startActivity(intent);
             }
         }

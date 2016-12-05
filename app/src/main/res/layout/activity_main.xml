@@ -11,20 +11,25 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.eae.kipper.jung.gabriel.mitgliederverwaltung.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_alignParentEnd="true"
+        android:id="@+id/foating_add"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_add"
+        app:elevation="5dp"
+        app:backgroundTint="#FF5722"
         android:layout_alignParentBottom="true"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:src="@drawable/ic_add_white_24dp"
-        android:id="@+id/foating_add"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        app:borderWidth="0dp"
+        app:rippleColor="#bf360c" />
 
 </RelativeLayout>
