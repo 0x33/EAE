@@ -18,8 +18,6 @@ public class AddEdit extends AppCompatActivity {
         save = (FloatingActionButton)findViewById(R.id.foating_save);
 
         save.setOnClickListener(handler);
-
-        //TEst
     }
 
     View.OnClickListener handler = new View.OnClickListener() {

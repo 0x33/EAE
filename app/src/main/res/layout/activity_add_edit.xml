@@ -111,7 +111,9 @@
                         android:id="@+id/rb_aktiv"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textColor="#555555"
+                        android:buttonTint="#555555" />
 
                     <RadioButton
                         android:text="@string/text_passiv"
@@ -120,7 +122,9 @@
                         android:id="@+id/rb_passiv"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textColor="#555555"
+                        android:buttonTint="#555555" />
                 </RadioGroup>
             </LinearLayout>
 

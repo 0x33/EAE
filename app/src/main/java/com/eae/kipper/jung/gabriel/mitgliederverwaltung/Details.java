@@ -15,14 +15,8 @@ public class Details extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //TODO: Mithilfe des MenuInflaters Die Menu-Ressource (Optionsmenu) start_activity_menu zuweisen
-        //MenuInflater(Context){
-        //    void inflate (int start_activity_menu, Menu menu)
-        //}
-
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.details_menu, menu);
-
 
         return true;
     }
