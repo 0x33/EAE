@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-//another git push test
     FloatingActionButton add;
 
     @Override
