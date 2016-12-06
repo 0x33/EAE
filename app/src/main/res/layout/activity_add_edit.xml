@@ -94,6 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/text_mitgliederstatus"
+                    android:textColorHint="#9e9e9e"
                     android:ems="10"
                     android:textSize="18sp"
                     android:layout_weight="1" />
@@ -112,8 +113,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:textSize="18sp"
-                        android:textColor="#555555"
-                        android:buttonTint="#555555" />
+                        android:textColor="#9e9e9e" />
 
                     <RadioButton
                         android:text="@string/text_passiv"
@@ -123,8 +123,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:textSize="18sp"
-                        android:textColor="#555555"
-                        android:buttonTint="#555555" />
+                        android:textColor="#9e9e9e" />
                 </RadioGroup>
             </LinearLayout>
 
