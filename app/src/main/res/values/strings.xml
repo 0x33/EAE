@@ -25,6 +25,8 @@
     <string name="confirm_message">Dies wird das Mitglied dauerhaft löschen</string>
     <string name="button_abbrechen">Abbrechen</string>
     <string name="button_loschen">Löschen</string>
+    <string name="toast_loschen">Mitglied wurde gelöscht</string>
+    <string name="toast_abbrechen">Mitglied wurde nicht gelöscht</string>
     <string name="mitglied_hinzugefuegt">Mitglied wurde hinzugefügt</string>
     <string name="mitglied_nicht_hinzugefuegt">Mitglied wurde aufrund eines Fehlers nicht hinzugefügt</string>
     <string name="mitglied_geaendert">Mitglied wurde geändert</string>
