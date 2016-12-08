@@ -57,6 +57,7 @@ public class Details extends AppCompatActivity {
     }
 
     private void deleteContact(){
+
         //Kontakt löschen
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
