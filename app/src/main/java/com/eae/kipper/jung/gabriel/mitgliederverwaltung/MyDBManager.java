@@ -5,10 +5,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by gaby on 08.12.2016.
- */
-
 public class MyDBManager extends SQLiteOpenHelper {
 
     public static final int DATENBANK_VERSION = 1;

@@ -1,7 +1,9 @@
 package com.eae.kipper.jung.gabriel.mitgliederverwaltung;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +12,7 @@ import android.widget.TextView;
 
 public class AddEdit extends AppCompatActivity {
 
-    TextView test;
+    //TextView test;
 
     FloatingActionButton save;
     EditText nameInputText, vornameInputText, nummerPrivatInputText, nummerMobilInputText, emailInputText, strasseInputText, plzInputText, ortInputText;
@@ -22,7 +24,7 @@ public class AddEdit extends AppCompatActivity {
         setContentView(R.layout.activity_add_edit);
 
         save = (FloatingActionButton)findViewById(R.id.foating_save);
-        save.setOnClickListener(handler);
+        updateSaveFAB();
 
         nameInputText = (EditText)findViewById(R.id.Input_Text_Name);
         vornameInputText = (EditText)findViewById(R.id.Input_Text_Vorname);
@@ -42,10 +44,9 @@ public class AddEdit extends AppCompatActivity {
         strasseInputText.toString();
         plzInputText.toString();
         ortInputText.toString();
-*/
+
         test = (TextView)findViewById(R.id.testString);
-
-
+        */
     }
 
     View.OnClickListener handler = new View.OnClickListener() {
@@ -79,14 +80,18 @@ public class AddEdit extends AppCompatActivity {
         }
     };
 
+    //FAB erscheint nur, wenn mitglied ein name und vorname zugeiesen wurde
     private void updateSaveFAB() {
-        String inputName = nameInputText.toString();
+
+        /*String inputName = nameInputText.toString();
         String inputVname = vornameInputText.toString();
 
-        // if there is a name for the contact, show the FloatingActionButton
         if (inputName.trim().length() != 0 && inputVname.trim().length() != 0)
             save.show();
         else
             save.hide();
+            */
+
+        save.show();
     }
 }

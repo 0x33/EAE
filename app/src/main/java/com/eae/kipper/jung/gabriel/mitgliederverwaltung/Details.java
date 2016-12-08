@@ -56,6 +56,7 @@ public class Details extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //TODO
     private void deleteContact(){
         //Kontakt löschen
 

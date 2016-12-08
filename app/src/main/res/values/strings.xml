@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">Mitgliederverwaltung</string>
+    <string name="menuitem_sort_name">Nach Namen sortieren</string>
+    <string name="menuitem_sort_vorname">Nach Vornamen sortieren</string>
     <string name="menuitem_edit">Edit</string>
     <string name="menuitem_delete">Delete</string>
-    <string name="hint_name">Name</string>
-    <string name="hint_vorname">Vorname</string>
+    <string name="hint_name">Name (Pflicht)</string>
+    <string name="hint_vorname">Vorname (Pflicht)</string>
     <string name="hint_nummer_privat">Nummer Privat</string>
     <string name="hint_nummer_mobil">Nummer Mobil</string>
     <string name="hint_email">E-Mail</string>
@@ -22,11 +24,13 @@
     <string name="label_plz">PLZ:</string>
     <string name="label_ort">Ort:</string>
     <string name="confirm_title">Sind Sie sicher?</string>
-    <string name="confirm_message">Diese Aktion wird das Mitglied löschen</string>
+    <string name="confirm_message">Durch diese Aktion wird das Mitglied gelöscht</string>
     <string name="button_loschen">Löschen</string>
     <string name="button_abbrechen">Abbrechen</string>
     <string name="toast_loschen">Mitglied wurde gelöscht</string>
     <string name="toast_abbrechen">Mitglied wurde nicht gelöscht</string>
+    <string name="toast_sort_name">Mitglieder wurden nach Namen sortiert</string>
+    <string name="toast_sort_vorname">Mitglieder wurden nach Vornamen sortiert</string>
     <string name="mitglied_hinzugefuegt">Mitglied wurde hinzugefügt</string>
     <string name="mitglied_nicht_hinzugefuegt">Mitglied wurde aufrund eines Fehlers nicht hinzugefügt</string>
     <string name="mitglied_geaendert">Mitglied wurde geändert</string>

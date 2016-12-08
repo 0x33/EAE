@@ -20,69 +20,126 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <EditText
-                android:id="@+id/Input_Text_Name"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="@string/hint_name"
-                android:ems="10" />
+                android:id="@+id/Input_Text_Label_Name">
 
-            <EditText
-                android:id="@+id/Input_Text_Vorname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="@string/hint_vorname"
-                android:ems="10" />
+                <EditText
+                    android:id="@+id/Input_Text_Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="@string/hint_name"
+                    android:ems="10" />
 
-            <EditText
-                android:id="@+id/Input_Text_Nummer_Privat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone"
-                android:hint="@string/hint_nummer_privat"
-                android:ems="10" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/Input_Text_Nummer_Mobil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone"
-                android:hint="@string/hint_nummer_mobil"
-                android:ems="10" />
 
-            <EditText
-                android:id="@+id/Input_Text_Email"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="@string/hint_email"
-                android:ems="10" />
+                android:id="@+id/Input_Text_Label_Vorname">
 
-            <EditText
-                android:id="@+id/Input_Text_Strasse"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="@string/hint_strasse"
-                android:ems="10" />
+                <EditText
+                    android:id="@+id/Input_Text_Vorname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="@string/hint_vorname"
+                    android:ems="10" />
 
-            <EditText
-                android:id="@+id/Input_Text_Plz"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="@string/hint_plz"
-                android:ems="10" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/Input_Text_Ort"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="@string/hint_ort"
-                android:ems="10" />
+                android:id="@+id/Input_Text_Label_Numemr_Privat">
+
+                <EditText
+                    android:id="@+id/Input_Text_Nummer_Privat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:hint="@string/hint_nummer_privat"
+                    android:ems="10" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Input_Text_Label_Numemr_Mobil">
+
+                <EditText
+                    android:id="@+id/Input_Text_Nummer_Mobil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:hint="@string/hint_nummer_mobil"
+                    android:ems="10" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Input_Text_Label_Email">
+
+                <EditText
+                    android:id="@+id/Input_Text_Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/hint_email"
+                    android:ems="10" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Input_Text_Label_Strasse">
+
+                <EditText
+                    android:id="@+id/Input_Text_Strasse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="@string/hint_strasse"
+                    android:ems="10" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Input_Text_Label_Plz">
+
+                <EditText
+                    android:id="@+id/Input_Text_Plz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="@string/hint_plz"
+                    android:ems="10" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Input_Text_Label_Ort">
+
+                <EditText
+                    android:id="@+id/Input_Text_Ort"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="@string/hint_ort"
+                    android:ems="10" />
+
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -125,18 +182,9 @@
                         android:ems="10"
                         android:textSize="18sp"
                         android:textColor="@color/lightgrey" />
+
                 </RadioGroup>
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/testString"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="test"
-                android:textColorHint="@color/lightgrey"
-                android:ems="10"
-                android:textSize="18sp"
-                android:layout_weight="1" />
 
         </LinearLayout>
     </ScrollView>
