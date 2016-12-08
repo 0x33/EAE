@@ -62,7 +62,7 @@ public class AddEdit extends AppCompatActivity {
 
                 test.setText(name + " " + vname + " " + nummerp);
                 */
-                //testEintrag
+                //testEintrag!
                 db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
                 //Eintrag per Felder in AddEdit
         /*        db.insertMitglied(nameInputText.toString(),
