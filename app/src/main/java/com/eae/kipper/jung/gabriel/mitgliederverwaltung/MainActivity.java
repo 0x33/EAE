@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    //TODO
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.sort_Name:
