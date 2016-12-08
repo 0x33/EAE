@@ -21,10 +21,10 @@
     <string name="label_strasse">Straße:</string>
     <string name="label_plz">PLZ:</string>
     <string name="label_ort">Ort:</string>
-    <string name="confirm_title">Sind Sie sicher??</string>
-    <string name="confirm_message">Dies wird das Mitglied dauerhaft löschen</string>
-    <string name="button_abbrechen">Abbrechen</string>
+    <string name="confirm_title">Sind Sie sicher?</string>
+    <string name="confirm_message">Diese Aktion wird das Mitglied löschen</string>
     <string name="button_loschen">Löschen</string>
+    <string name="button_abbrechen">Abbrechen</string>
     <string name="toast_loschen">Mitglied wurde gelöscht</string>
     <string name="toast_abbrechen">Mitglied wurde nicht gelöscht</string>
     <string name="mitglied_hinzugefuegt">Mitglied wurde hinzugefügt</string>

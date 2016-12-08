@@ -59,4 +59,15 @@ public class AddEdit extends AppCompatActivity {
             }
         }
     };
+
+    private void updateSaveFAB() {
+        String inputName = nameInputText.toString();
+        String inputVname = vornameInputText.toString();
+
+        // if there is a name for the contact, show the FloatingActionButton
+        if (inputName.trim().length() != 0 && inputVname.trim().length() != 0)
+            save.show();
+        else
+            save.hide();
+    }
 }
