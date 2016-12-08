@@ -14,6 +14,7 @@ public class AddEdit extends AppCompatActivity {
 
     FloatingActionButton save;
     EditText nameInputText, vornameInputText, nummerPrivatInputText, nummerMobilInputText, emailInputText, strasseInputText, plzInputText, ortInputText;
+    MyDBManager db = new MyDBManager(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class AddEdit extends AppCompatActivity {
         plzInputText = (EditText)findViewById(R.id.Input_Text_Plz);
         ortInputText = (EditText)findViewById(R.id.Input_Text_Ort);
 
+/*  UNNÖTIG? zumindest in der Form.. toDELETE
         nameInputText.toString();
         vornameInputText.toString();
         nummerPrivatInputText.toString();
@@ -40,14 +42,17 @@ public class AddEdit extends AppCompatActivity {
         strasseInputText.toString();
         plzInputText.toString();
         ortInputText.toString();
-
+*/
         test = (TextView)findViewById(R.id.testString);
+
+
     }
 
     View.OnClickListener handler = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if(v.getId() == save.getId()){
+                /*
                 Intent intent = new Intent(getApplicationContext(), Details.class);
                 startActivity(intent);
 
@@ -56,6 +61,20 @@ public class AddEdit extends AppCompatActivity {
                 String nummerp = nummerPrivatInputText.getText().toString();
 
                 test.setText(name + " " + vname + " " + nummerp);
+                */
+                //testEintrag
+                db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
+                //Eintrag per Felder in AddEdit
+        /*        db.insertMitglied(nameInputText.toString(),
+                        vornameInputText.toString(),
+                        nummerPrivatInputText.toString(),
+                        nummerMobilInputText.toString(),
+                        emailInputText.toString(),
+                        strasseInputText.toString(),
+                        plzInputText.toString(),
+                        ortInputText.toString(),
+                        "aktiv");
+        */
             }
         }
     };

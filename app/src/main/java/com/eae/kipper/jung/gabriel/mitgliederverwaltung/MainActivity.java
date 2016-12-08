@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         add = (FloatingActionButton)findViewById(R.id.foating_add);
 
         add.setOnClickListener(handler);
+
     }
 
     View.OnClickListener handler = new View.OnClickListener() {
