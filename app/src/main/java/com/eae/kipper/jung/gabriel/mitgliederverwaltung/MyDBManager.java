@@ -2,6 +2,7 @@ package com.eae.kipper.jung.gabriel.mitgliederverwaltung;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -50,6 +51,13 @@ public class MyDBManager extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
+    }
+
+    public Cursor selectAll(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABELLE_MITGLIED, null);
+        meinZeiger.moveToFirst();
+        return meinZeiger;
     }
 
     public void insertMitglied(String name, String vorname, String privatnr, String mobilnr, String email, String strasse, String plz, String ort, String status){

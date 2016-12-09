@@ -1,6 +1,8 @@
 package com.eae.kipper.jung.gabriel.mitgliederverwaltung;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,10 +10,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     FloatingActionButton add;
+    MyDBManager db = new MyDBManager(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,17 @@ public class MainActivity extends AppCompatActivity {
         add = (FloatingActionButton)findViewById(R.id.foating_add);
         add.setOnClickListener(handler);
 
+        //Start-CursorAdapter (2 Zeilige Liste!)        !NOT YET FINISHED!
+/*        listView = (ListView)findViewById(R.id.list_2sp);
+        db = new MyDBManager(this);
+        Context cxt = this;
+        int itemLayout = android.R.layout.simple_list_item_2;
+        Cursor cursor = db.selectAll();
+        String[] from = new String[] {db.SPALTE_VORNAME + " " + db.SPALTE_NAME, db.SPALTE_PLZ + " " + db.SPALTE_ORT};
+        int[] to = new int[] {android.R.id.text1, android.R.id.text2};
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(cxt, itemLayout, cursor, from, to, 0);
+        listView.setAdapter(adapter);*/
+        //End-CursorAdapter
 
 
     }
