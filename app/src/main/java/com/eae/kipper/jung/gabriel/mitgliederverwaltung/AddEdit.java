@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AddEdit extends AppCompatActivity {
 
@@ -65,6 +66,8 @@ public class AddEdit extends AppCompatActivity {
                 */
                 //testEintrag!
                 db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
+                Toast.makeText(getApplicationContext(), "Toast: Button pressed!",
+                        Toast.LENGTH_LONG).show();
                 //Eintrag per Felder in AddEdit
         /*        db.insertMitglied(nameInputText.toString(),
                         vornameInputText.toString(),

@@ -25,17 +25,22 @@ public class MainActivity extends AppCompatActivity {
 
         add = (FloatingActionButton)findViewById(R.id.foating_add);
         add.setOnClickListener(handler);
-
+        //db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
         //Start-CursorAdapter (2 Zeilige Liste!)        !NOT YET FINISHED!
-/*        listView = (ListView)findViewById(R.id.list_2sp);
+        ListView listView = (ListView)findViewById(R.id.list_2sp);
         db = new MyDBManager(this);
         Context cxt = this;
         int itemLayout = android.R.layout.simple_list_item_2;
         Cursor cursor = db.selectAll();
         String[] from = new String[] {db.SPALTE_VORNAME + " " + db.SPALTE_NAME, db.SPALTE_PLZ + " " + db.SPALTE_ORT};
-        int[] to = new int[] {android.R.id.text1, android.R.id.text2};
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(cxt, itemLayout, cursor, from, to, 0);
-        listView.setAdapter(adapter);*/
+
+        //display in long period of time
+        Toast.makeText(getApplicationContext(), from.toString(),
+                Toast.LENGTH_LONG).show();
+
+        //int[] to = new int[] {android.R.id.text1, android.R.id.text2};
+        //SimpleCursorAdapter adapter = new SimpleCursorAdapter(cxt, itemLayout, cursor, from, to, 0);
+        //listView.setAdapter(adapter);
         //End-CursorAdapter
 
 
