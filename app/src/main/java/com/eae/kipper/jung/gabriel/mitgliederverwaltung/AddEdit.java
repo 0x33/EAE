@@ -25,7 +25,8 @@ public class AddEdit extends AppCompatActivity {
         setContentView(R.layout.activity_add_edit);
 
         save = (FloatingActionButton)findViewById(R.id.foating_save);
-        updateSaveFAB();
+        save.setOnClickListener(handler);
+        //updateSaveFAB();
 
         nameInputText = (EditText)findViewById(R.id.Input_Text_Name);
         vornameInputText = (EditText)findViewById(R.id.Input_Text_Vorname);
@@ -65,20 +66,25 @@ public class AddEdit extends AppCompatActivity {
                 test.setText(name + " " + vname + " " + nummerp);
                 */
                 //testEintrag!
-                db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
+              //  db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
                 Toast.makeText(getApplicationContext(), "Toast: Button pressed!",
                         Toast.LENGTH_LONG).show();
+
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+
                 //Eintrag per Felder in AddEdit
-        /*        db.insertMitglied(nameInputText.toString(),
-                        vornameInputText.toString(),
-                        nummerPrivatInputText.toString(),
-                        nummerMobilInputText.toString(),
-                        emailInputText.toString(),
-                        strasseInputText.toString(),
-                        plzInputText.toString(),
-                        ortInputText.toString(),
+               db.insertMitglied(nameInputText.getText().toString(),
+                        vornameInputText.getText().toString(),
+                        nummerPrivatInputText.getText().toString(),
+                        nummerMobilInputText.getText().toString(),
+                        emailInputText.getText().toString(),
+                        strasseInputText.getText().toString(),
+                        plzInputText.getText().toString(),
+                        ortInputText.getText().toString(),
                         "aktiv");
-        */
+
             }
         }
     };

@@ -25,22 +25,24 @@ public class MainActivity extends AppCompatActivity {
 
         add = (FloatingActionButton)findViewById(R.id.foating_add);
         add.setOnClickListener(handler);
-        //db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
+        // db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
         //Start-CursorAdapter (2 Zeilige Liste!)        !NOT YET FINISHED!
         ListView listView = (ListView)findViewById(R.id.list_2sp);
         db = new MyDBManager(this);
         Context cxt = this;
-        int itemLayout = android.R.layout.simple_list_item_2;
+        //int itemLayout = android.R.layout.simple_list_item_2;
+        int itemLayout = R.layout.main_layout;
         Cursor cursor = db.selectAll();
-        String[] from = new String[] {db.SPALTE_VORNAME + " " + db.SPALTE_NAME, db.SPALTE_PLZ + " " + db.SPALTE_ORT};
+        String[] from = new String[] {MyDBManager.SPALTE_VORNAME,MyDBManager.SPALTE_NAME , MyDBManager.SPALTE_ORT,MyDBManager.SPALTE_PLZ };
 
         //display in long period of time
-        Toast.makeText(getApplicationContext(), from.toString(),
+        Toast.makeText(getApplicationContext(), from[1],
                 Toast.LENGTH_LONG).show();
 
         //int[] to = new int[] {android.R.id.text1, android.R.id.text2};
-        //SimpleCursorAdapter adapter = new SimpleCursorAdapter(cxt, itemLayout, cursor, from, to, 0);
-        //listView.setAdapter(adapter);
+        int[] to = new int[] {R.id.text1, R.id.text2,R.id.text3,R.id.text4};
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(cxt, itemLayout, cursor, from, to, 0);
+        listView.setAdapter(adapter);
         //End-CursorAdapter
 
 
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.sort_Name:
-                //anch Namen sortieren
+                //nach Namen sortieren
                 Toast.makeText(getApplicationContext(),
                         R.string.toast_sort_name,
                         Toast.LENGTH_LONG).show();

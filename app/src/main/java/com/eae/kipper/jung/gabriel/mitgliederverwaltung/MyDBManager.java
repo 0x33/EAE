@@ -3,6 +3,7 @@ package com.eae.kipper.jung.gabriel.mitgliederverwaltung;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -12,6 +13,7 @@ public class MyDBManager extends SQLiteOpenHelper {
     public static final String DATENBANK_NAMEN = "MVW.db";
 
     public static final String TABELLE_MITGLIED = "mitglied";
+
 
     public static final String SPALTE_MITGLIED_NR = "mitglied_nr";
     public static final String SPALTE_NAME = "name";
@@ -55,7 +57,15 @@ public class MyDBManager extends SQLiteOpenHelper {
 
     public Cursor selectAll(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor meinZeiger = db.rawQuery("SELECT * FROM " + TABELLE_MITGLIED, null);
+
+
+        SQLiteCursor meinZeiger = (SQLiteCursor) db.rawQuery("SELECT " +
+                SPALTE_MITGLIED_NR + " AS _id, " +
+                "" + SPALTE_VORNAME + ", " +
+                "" + SPALTE_NAME + ", " +
+                "" + SPALTE_ORT+ ", " +
+                "" + SPALTE_PLZ +
+                " FROM " + TABELLE_MITGLIED, null);
         meinZeiger.moveToFirst();
         return meinZeiger;
     }
