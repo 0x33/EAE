@@ -6,6 +6,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,8 +26,11 @@ public class AddEdit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit);
 
+        final boolean[] textvalid = new boolean[2];
+
         save = (FloatingActionButton)findViewById(R.id.foating_save);
         save.setOnClickListener(handler);
+        save.hide();
         //updateSaveFAB();
 
         nameInputText = (EditText)findViewById(R.id.Input_Text_Name);
@@ -36,6 +41,13 @@ public class AddEdit extends AppCompatActivity {
         strasseInputText = (EditText)findViewById(R.id.Input_Text_Strasse);
         plzInputText = (EditText)findViewById(R.id.Input_Text_Plz);
         ortInputText = (EditText)findViewById(R.id.Input_Text_Ort);
+
+        nameInputText.addTextChangedListener(new TextChangeManager(textvalid,0));
+        vornameInputText.addTextChangedListener(new TextChangeManager(textvalid,1));
+
+
+
+
 
 /*  UNNÖTIG? zumindest in der Form.. toDELETE
         nameInputText.toString();
@@ -50,6 +62,60 @@ public class AddEdit extends AppCompatActivity {
         test = (TextView)findViewById(R.id.testString);
         */
     }
+
+
+
+
+
+public class TextChangeManager implements TextWatcher{
+     boolean[] valid;
+     int index;
+
+    public TextChangeManager(final boolean[] valid,int index){
+        this.valid=valid;
+        this.index = index;
+
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        if(s.length()>=1){
+            valid[index]=true;
+
+        }else{
+            valid[index]=false;
+        }
+
+        boolean visible = true;
+        for(int i = 0;i<valid.length;i++){
+            visible=visible&&valid[i];
+
+
+        }
+        if(visible){
+            save.show();
+        }else{
+            save.hide();
+        }
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+    }
+}
+
+
+
+
+
+
 
     View.OnClickListener handler = new View.OnClickListener() {
         @Override
