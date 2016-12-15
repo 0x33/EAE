@@ -3,8 +3,10 @@ package com.eae.kipper.jung.gabriel.mitgliederverwaltung;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,6 +19,8 @@ import android.widget.Toast;
 public class Details extends AppCompatActivity {
 
     TextView nameText, vornameText, nummerpText, nummermText, emailText, strasseText, plzText, ortText;
+    MyDBManager db;
+    Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +30,50 @@ public class Details extends AppCompatActivity {
         nameText = (TextView) findViewById(R.id.Text_Name);
         vornameText = (TextView) findViewById(R.id.Text_Vorname);
         nummerpText = (TextView) findViewById(R.id.Text_Nummer_Privat);
-        nummermText = (TextView) findViewById(R.id.Input_Text_Nummer_Mobil);
+        nummermText = (TextView) findViewById(R.id.Text_Nummer_Mobil);
         emailText = (TextView) findViewById(R.id.Text_Email);
         strasseText = (TextView) findViewById(R.id.Text_Strasse);
         plzText = (TextView) findViewById(R.id.Text_Plz);
         ortText = (TextView) findViewById(R.id.Text_Ort);
+
+        Intent receiver = getIntent();
+        int receivID = receiver.getIntExtra("ID", 1);
+
+
+        db = new MyDBManager(this);
+        cursor = db.selectData(receivID);
+
+        cursor.moveToFirst();
+        showValues();
+
+    }
+
+
+    public void showValues() {
+
+        String id = cursor.getString(0).toString();
+        String name= cursor.getString(1);
+        String vorname = cursor.getString(2);
+        String pnr = cursor.getString(3);
+        String mnr = cursor.getString(4);
+        String email = cursor.getString(5);
+        String strasse = cursor.getString(6);
+        String plz = cursor.getString(7);
+        String ort = cursor.getString(8);
+
+
+
+
+        nameText.setText(name);
+        vornameText.setText(vorname);
+        nummerpText.setText(pnr);
+        nummermText.setText(mnr);
+        emailText.setText(email);
+        strasseText.setText(strasse);
+        plzText.setText(plz);
+        ortText.setText(ort);
+
+
 
 
     }
@@ -56,7 +99,7 @@ public class Details extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void deleteContact(){
+    private void deleteContact() {
 
         //Kontakt löschen
 

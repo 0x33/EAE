@@ -37,6 +37,7 @@ public class MyDBManager extends SQLiteOpenHelper {
         db.execSQL(
                 "CREATE TABLE " + TABELLE_MITGLIED + " (" +
                         SPALTE_MITGLIED_NR + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+
                         SPALTE_NAME + " TEXT," +
                         SPALTE_VORNAME + " TEXT," +
                         SPALTE_PRIVATNR + " TEXT," +
@@ -55,12 +56,25 @@ public class MyDBManager extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
     }
 
+    public Cursor selectData(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteCursor meinZeiger = (SQLiteCursor) db.rawQuery("SELECT * FROM "+
+                TABELLE_MITGLIED +
+                " WHERE "
+                +SPALTE_MITGLIED_NR +
+                "="+id,null);
+
+                return meinZeiger;
+    }
+
+
+
     public Cursor selectAll(){
         SQLiteDatabase db = this.getWritableDatabase();
 
-
         SQLiteCursor meinZeiger = (SQLiteCursor) db.rawQuery("SELECT " +
                 SPALTE_MITGLIED_NR + " AS _id, " +
+               // "" + SPALTE_MITGLIED_NR+","+
                 "" + SPALTE_VORNAME + ", " +
                 "" + SPALTE_NAME + ", " +
                 "" + SPALTE_ORT+ ", " +
