@@ -166,7 +166,8 @@
             android:layout_row="7"
             android:layout_gravity="fill_horizontal"
             android:textSize="16dp"
-            android:inputType="none"
+            android:editable="false"
             android:background="@drawable/textview_border" />
+
     </GridLayout>
 </ScrollView>

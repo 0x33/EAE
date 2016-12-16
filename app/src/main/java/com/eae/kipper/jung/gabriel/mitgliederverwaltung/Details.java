@@ -5,8 +5,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -22,6 +24,8 @@ import static com.eae.kipper.jung.gabriel.mitgliederverwaltung.MyDBManager.DATEN
 
 public class Details extends AppCompatActivity {
 
+
+
     EditText nameText, vornameText, nummerpText, nummermText, emailText, strasseText, plzText, ortText;
     MyDBManager db;
     Cursor cursor;
@@ -33,6 +37,8 @@ public class Details extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
+        //TODO FloatingActionButton
+
         nameText = (EditText) findViewById(R.id.Text_Name);
         vornameText = (EditText) findViewById(R.id.Text_Vorname);
         nummerpText = (EditText) findViewById(R.id.Text_Nummer_Privat);
@@ -43,7 +49,14 @@ public class Details extends AppCompatActivity {
         ortText = (EditText) findViewById(R.id.Text_Ort);
 
 
-
+        nameText.setInputType(0);
+        vornameText.setInputType(0);
+        nummerpText.setInputType(0);
+        nummermText.setInputType(0);
+        emailText.setInputType(0);
+        strasseText.setInputType(0);
+        plzText.setInputType(0);
+        ortText.setInputType(0);
 
 
         Intent receiver = getIntent();
@@ -130,7 +143,18 @@ public class Details extends AppCompatActivity {
 
     }
     private void editContact(){
+        nameText.setInputType(1);
+        vornameText.setInputType(1);
+        nummerpText.setInputType(1);
+        nummermText.setInputType(1);
+        emailText.setInputType(1);
+        strasseText.setInputType(1);
+        plzText.setInputType(1);
+        ortText.setInputType(1);
 
+        //TODO AddHandler
+
+        //TODO SQl Update
 
 
 
