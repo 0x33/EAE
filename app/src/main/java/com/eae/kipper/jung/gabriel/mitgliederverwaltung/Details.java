@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,35 +14,45 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.eae.kipper.jung.gabriel.mitgliederverwaltung.MyDBManager.DATENBANK_NAMEN;
+
 public class Details extends AppCompatActivity {
 
-    TextView nameText, vornameText, nummerpText, nummermText, emailText, strasseText, plzText, ortText;
+    EditText nameText, vornameText, nummerpText, nummermText, emailText, strasseText, plzText, ortText;
     MyDBManager db;
     Cursor cursor;
+    int receivID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        nameText = (TextView) findViewById(R.id.Text_Name);
-        vornameText = (TextView) findViewById(R.id.Text_Vorname);
-        nummerpText = (TextView) findViewById(R.id.Text_Nummer_Privat);
-        nummermText = (TextView) findViewById(R.id.Text_Nummer_Mobil);
-        emailText = (TextView) findViewById(R.id.Text_Email);
-        strasseText = (TextView) findViewById(R.id.Text_Strasse);
-        plzText = (TextView) findViewById(R.id.Text_Plz);
-        ortText = (TextView) findViewById(R.id.Text_Ort);
+        nameText = (EditText) findViewById(R.id.Text_Name);
+        vornameText = (EditText) findViewById(R.id.Text_Vorname);
+        nummerpText = (EditText) findViewById(R.id.Text_Nummer_Privat);
+        nummermText = (EditText) findViewById(R.id.Text_Nummer_Mobil);
+        emailText = (EditText) findViewById(R.id.Text_Email);
+        strasseText = (EditText) findViewById(R.id.Text_Strasse);
+        plzText = (EditText) findViewById(R.id.Text_Plz);
+        ortText = (EditText) findViewById(R.id.Text_Ort);
+
+
+
+
 
         Intent receiver = getIntent();
-        int receivID = receiver.getIntExtra("ID", 1);
+        receivID = receiver.getIntExtra("ID", 1);
 
 
         db = new MyDBManager(this);
         cursor = db.selectData(receivID);
+
 
         cursor.moveToFirst();
         showValues();
@@ -50,6 +61,9 @@ public class Details extends AppCompatActivity {
 
 
     public void showValues() {
+
+
+
 
         String id = cursor.getString(0).toString();
         String name= cursor.getString(1);
@@ -89,14 +103,37 @@ public class Details extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_edit:
-                Intent intent = new Intent(getApplicationContext(), AddEdit.class);
-                startActivity(intent);
+              //  Intent intent = new Intent(getApplicationContext(), AddEdit.class);
+              //  startActivity(intent);
+                editContact();
                 return true;
             case R.id.action_delete:
                 deleteContact();
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void moveNext() {
+        if (!cursor.isLast())
+            cursor.moveToNext();
+
+        showValues();
+
+    }
+
+    public void movePrev() {
+        if (!cursor.isFirst())
+            cursor.moveToPrevious();
+
+        showValues();
+
+    }
+    private void editContact(){
+
+
+
+
     }
 
     private void deleteContact() {
@@ -113,9 +150,18 @@ public class Details extends AppCompatActivity {
         alertDialog.setPositiveButton(R.string.button_loschen,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+
+                        db.deleteRow(receivID);
+                      cursor=  db.selectAll();
+
+
                         Toast.makeText(getApplicationContext(),
                                 R.string.toast_loschen,
                                 Toast.LENGTH_LONG).show();
+
+                        Details.this.finish();
+
+
                     }
                 });
 

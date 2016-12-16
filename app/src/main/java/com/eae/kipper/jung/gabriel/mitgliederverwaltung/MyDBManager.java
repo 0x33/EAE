@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class MyDBManager extends SQLiteOpenHelper {
 
@@ -34,6 +35,7 @@ public class MyDBManager extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db){
         //alle Tabellen erzeugen
         //Tabellen mit Grunddaten füllen
+
         db.execSQL(
                 "CREATE TABLE " + TABELLE_MITGLIED + " (" +
                         SPALTE_MITGLIED_NR + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -83,6 +85,16 @@ public class MyDBManager extends SQLiteOpenHelper {
         meinZeiger.moveToFirst();
         return meinZeiger;
     }
+
+    public void deleteRow(int id){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql= "DELETE FROM "+TABELLE_MITGLIED+ " WHERE "+SPALTE_MITGLIED_NR+" = "+id;
+        db.execSQL(sql);
+        Log.e("DEL","Weg mit dir!");
+
+    }
+
 
     public void insertMitglied(String name, String vorname, String privatnr, String mobilnr, String email, String strasse, String plz, String ort, String status){
         ContentValues neueZeile = new ContentValues();

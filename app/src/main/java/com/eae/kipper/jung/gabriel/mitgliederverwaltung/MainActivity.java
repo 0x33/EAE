@@ -22,6 +22,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     FloatingActionButton add;
     MyDBManager db = new MyDBManager(this);
+    SimpleCursorAdapter adapter;
     int listID;
 
     @Override
@@ -49,8 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
         //int[] to = new int[] {android.R.id.text1, android.R.id.text2};
         int[] to = new int[] {R.id.textid,R.id.text1, R.id.text2,R.id.text3,R.id.text4};
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(cxt, itemLayout, cursor, from, to, 0);
+        adapter = new SimpleCursorAdapter(cxt, itemLayout, cursor, from, to, 0);
         listView.setAdapter(adapter);
+
 
         //End-CursorAdapter
 
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
                Intent intent = new Intent(getApplicationContext(),Details.class);
                intent.putExtra("ID",listID);
+
 
               startActivity(intent);
                 //putExtra(String name,int value)
@@ -117,5 +120,15 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        adapter.changeCursor(db.selectAll());
+        adapter.notifyDataSetChanged();
+    Log.e("RESUME","blalbal");
+
     }
 }
