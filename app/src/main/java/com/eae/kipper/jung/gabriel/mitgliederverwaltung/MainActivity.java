@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     MyDBManager db = new MyDBManager(this);
     SimpleCursorAdapter adapter;
     int listID;
+    Context cxt = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(handler);
         // db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
         //Start-CursorAdapter (2 Zeilige Liste!)        !NOT YET FINISHED!
-        final ListView listView = (ListView)findViewById(R.id.list_2sp);
+        /*final ListView listView = (ListView)findViewById(R.id.list_2sp);
         db = new MyDBManager(this);
-        Context cxt = this;
+
         //int itemLayout = android.R.layout.simple_list_item_2;
         int itemLayout = R.layout.main_layout;
         Cursor cursor = db.selectAll();
@@ -44,17 +45,33 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //display in long period of time
-        Toast.makeText(getApplicationContext(), from[1],
-                Toast.LENGTH_LONG).show();
+
+        //int[] to = new int[] {android.R.id.text1, android.R.id.text2};
+        int[] to = new int[] {R.id.textid,R.id.text1, R.id.text2,R.id.text3,R.id.text4};
+        adapter = new SimpleCursorAdapter(cxt, itemLayout, cursor, from, to, 0);
+        listView.setAdapter(adapter);*/
+        fillList(db.selectAll());
+
+        //End-CursorAdapter
+
+
+
+
+
+    }
+    public void fillList(Cursor c){
+        final ListView listView = (ListView)findViewById(R.id.list_2sp);
+        Cursor cursor = c;
+        int itemLayout = R.layout.main_layout;
+        String[] from = new String[] {"_id",MyDBManager.SPALTE_VORNAME,MyDBManager.SPALTE_NAME , MyDBManager.SPALTE_ORT,MyDBManager.SPALTE_PLZ, };
+
+
+
 
         //int[] to = new int[] {android.R.id.text1, android.R.id.text2};
         int[] to = new int[] {R.id.textid,R.id.text1, R.id.text2,R.id.text3,R.id.text4};
         adapter = new SimpleCursorAdapter(cxt, itemLayout, cursor, from, to, 0);
         listView.setAdapter(adapter);
-
-
-        //End-CursorAdapter
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -69,16 +86,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-               Intent intent = new Intent(getApplicationContext(),Details.class);
-               intent.putExtra("ID",listID);
+                Intent intent = new Intent(getApplicationContext(),Details.class);
+                intent.putExtra("ID",listID);
 
 
-              startActivity(intent);
+                startActivity(intent);
                 //putExtra(String name,int value)
 
             }
         });
-
 
 
     }
@@ -111,12 +127,17 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         R.string.toast_sort_name,
                         Toast.LENGTH_LONG).show();
+                    fillList(db.sortName());
+
+
+
                 return true;
             case R.id.sort_Vorname:
                 //nach Vornamen sortieren
                 Toast.makeText(getApplicationContext(),
                         R.string.toast_sort_vorname,
                         Toast.LENGTH_LONG).show();
+                    fillList(db.sortVorname());
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -128,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.changeCursor(db.selectAll());
         adapter.notifyDataSetChanged();
-    Log.e("RESUME","blalbal");
+
 
     }
 }

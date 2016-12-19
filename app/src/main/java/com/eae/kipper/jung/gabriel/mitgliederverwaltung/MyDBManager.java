@@ -1,5 +1,6 @@
 package com.eae.kipper.jung.gabriel.mitgliederverwaltung;
 
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -54,6 +55,37 @@ public class MyDBManager extends SQLiteOpenHelper {
         );
 
     }
+
+    public Cursor sortName(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteCursor meinZeiger = (SQLiteCursor) db.rawQuery("SELECT " +
+                SPALTE_MITGLIED_NR + " AS _id, " +
+                // "" + SPALTE_MITGLIED_NR+","+
+                "" + SPALTE_VORNAME + ", " +
+                "" + SPALTE_NAME + ", " +
+                "" + SPALTE_ORT+ ", " +
+                "" + SPALTE_PLZ +
+                " FROM " + TABELLE_MITGLIED +" ORDER BY "+ SPALTE_NAME+" ASC ",null);
+        meinZeiger.moveToFirst();
+        return meinZeiger;
+
+    }
+    public Cursor sortVorname(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteCursor meinZeiger = (SQLiteCursor) db.rawQuery("SELECT " +
+                SPALTE_MITGLIED_NR + " AS _id, " +
+                // "" + SPALTE_MITGLIED_NR+","+
+                "" + SPALTE_VORNAME + ", " +
+                "" + SPALTE_NAME + ", " +
+                "" + SPALTE_ORT+ ", " +
+                "" + SPALTE_PLZ +
+                " FROM " + TABELLE_MITGLIED +" ORDER BY "+ SPALTE_VORNAME+" ASC ",null);
+        meinZeiger.moveToFirst();
+        return meinZeiger;
+
+    }
+
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
