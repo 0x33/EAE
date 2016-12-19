@@ -238,7 +238,7 @@ public class Details extends AppCompatActivity {
                 */
                 //testEintrag!
                 //  db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
-                Toast.makeText(getApplicationContext(), "@string/mitglied_geändert",
+                Toast.makeText(getApplicationContext(), "R.string.mitglied_geändert",
                         Toast.LENGTH_LONG).show();
 
                 db.Update(receivID,nameText,vornameText,nummerpText,nummermText,emailText,strasseText,plzText,ortText);

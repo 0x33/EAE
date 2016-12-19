@@ -27,6 +27,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /*TODO----------------------++++++++######
+            Sortierung (per Globale Variable
+            Toast
+            Logs
+            Kommentare
+            STATUS mitspeichern..Laden
+            LOGO
+
+        */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
