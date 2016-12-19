@@ -1,6 +1,7 @@
 package com.eae.kipper.jung.gabriel.mitgliederverwaltung;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -132,6 +134,7 @@ public class Details extends AppCompatActivity {
               //  Intent intent = new Intent(getApplicationContext(), AddEdit.class);
               //  startActivity(intent);
                 editContact();
+
                 return true;
             case R.id.action_delete:
                 deleteContact();
@@ -164,6 +167,8 @@ public class Details extends AppCompatActivity {
         strasseText.setInputType(InputType.TYPE_CLASS_TEXT);
         plzText.setInputType(InputType.TYPE_CLASS_NUMBER);
         ortText.setInputType(InputType.TYPE_CLASS_TEXT);
+        nameText.setSelection(nameText.getText().length());
+        openKeyboard();
 
         save.show();
         //TODO AddHandler
@@ -233,13 +238,14 @@ public class Details extends AppCompatActivity {
                 */
                 //testEintrag!
                 //  db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
-                Toast.makeText(getApplicationContext(), "Toast: Button pressed!",
+                Toast.makeText(getApplicationContext(), "@string/mitglied_geändert",
                         Toast.LENGTH_LONG).show();
 
                 db.Update(receivID,nameText,vornameText,nummerpText,nummermText,emailText,strasseText,plzText,ortText);
                 cursor=  db.selectAll();
 
                 save.hide();
+                closeKeyboard();
                 setEditable();
 
                 //Eintrag per Felder in AddEdit
@@ -247,4 +253,15 @@ public class Details extends AppCompatActivity {
             }
         }
     };
+    public void openKeyboard(){
+        InputMethodManager keyboard = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        keyboard.showSoftInput(nameText, 0);
+    }
+    public void closeKeyboard(){
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
 }

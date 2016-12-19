@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         //display in long period of time
-        Toast.makeText(getApplicationContext(), from[1],
-                Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(), from[1],
+//                Toast.LENGTH_LONG).show();
 
         //int[] to = new int[] {android.R.id.text1, android.R.id.text2};
         int[] to = new int[] {R.id.textid,R.id.text1, R.id.text2,R.id.text3,R.id.text4};

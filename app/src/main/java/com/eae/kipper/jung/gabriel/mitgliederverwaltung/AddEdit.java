@@ -133,7 +133,7 @@ public class TextChangeManager implements TextWatcher{
                 */
                 //testEintrag!
               //  db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
-                Toast.makeText(getApplicationContext(), "Toast: Button pressed!",
+                Toast.makeText(getApplicationContext(), "@string/mitglied_hinzugefuegt",
                         Toast.LENGTH_LONG).show();
 
 
