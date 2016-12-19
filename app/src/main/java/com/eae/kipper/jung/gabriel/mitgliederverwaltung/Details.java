@@ -31,13 +31,17 @@ public class Details extends AppCompatActivity {
     Cursor cursor;
     int receivID;
 
-
+    FloatingActionButton save;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
         //TODO FloatingActionButton
+        save = (FloatingActionButton)findViewById(R.id.foating_save);
+        save.setOnClickListener(handler);
+        save.hide();
+
 
         nameText = (EditText) findViewById(R.id.Text_Name);
         vornameText = (EditText) findViewById(R.id.Text_Vorname);
@@ -48,15 +52,9 @@ public class Details extends AppCompatActivity {
         plzText = (EditText) findViewById(R.id.Text_Plz);
         ortText = (EditText) findViewById(R.id.Text_Ort);
 
+        setEditable();
 
-        nameText.setInputType(0);
-        vornameText.setInputType(0);
-        nummerpText.setInputType(0);
-        nummermText.setInputType(0);
-        emailText.setInputType(0);
-        strasseText.setInputType(0);
-        plzText.setInputType(0);
-        ortText.setInputType(0);
+
 
 
         Intent receiver = getIntent();
@@ -71,11 +69,27 @@ public class Details extends AppCompatActivity {
         showValues();
 
     }
+    public void setEditable(){
+
+        nameText.setInputType(InputType.TYPE_NULL);
+        vornameText.setInputType(InputType.TYPE_NULL);
+        nummerpText.setInputType(InputType.TYPE_NULL);
+        nummermText.setInputType(InputType.TYPE_NULL);
+        emailText.setInputType(InputType.TYPE_NULL);
+        strasseText.setInputType(InputType.TYPE_NULL);
+        plzText.setInputType(InputType.TYPE_NULL);
+        ortText.setInputType(InputType.TYPE_NULL);
+
+    }
+
+
 
 
     public void showValues() {
 
-
+        Log.e("Anzahl",": "+cursor.getColumnCount());
+        Log.e("Count",": "+cursor.getColumnCount());
+        Log.e("CName",": "+cursor.getColumnName(0));
 
 
         String id = cursor.getString(0).toString();
@@ -87,7 +101,6 @@ public class Details extends AppCompatActivity {
         String strasse = cursor.getString(6);
         String plz = cursor.getString(7);
         String ort = cursor.getString(8);
-
 
 
 
@@ -143,18 +156,20 @@ public class Details extends AppCompatActivity {
 
     }
     private void editContact(){
-        nameText.setInputType(1);
-        vornameText.setInputType(1);
-        nummerpText.setInputType(1);
-        nummermText.setInputType(1);
-        emailText.setInputType(1);
-        strasseText.setInputType(1);
-        plzText.setInputType(1);
-        ortText.setInputType(1);
+        nameText.setInputType(InputType.TYPE_CLASS_TEXT);
+        vornameText.setInputType(InputType.TYPE_CLASS_TEXT);
+        nummerpText.setInputType(InputType.TYPE_CLASS_PHONE);
+        nummermText.setInputType(InputType.TYPE_CLASS_PHONE);
+        emailText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        strasseText.setInputType(InputType.TYPE_CLASS_TEXT);
+        plzText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        ortText.setInputType(InputType.TYPE_CLASS_TEXT);
 
+        save.show();
         //TODO AddHandler
 
-        //TODO SQl Update
+
+
 
 
 
@@ -202,4 +217,34 @@ public class Details extends AppCompatActivity {
         alertDialog.create();
         alertDialog.show();
     }
+    View.OnClickListener handler = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(v.getId() == save.getId()){
+                /*
+                Intent intent = new Intent(getApplicationContext(), Details.class);
+                startActivity(intent);
+
+                String name = nameInputText.getText().toString();
+                String vname = vornameInputText.getText().toString();
+                String nummerp = nummerPrivatInputText.getText().toString();
+
+                test.setText(name + " " + vname + " " + nummerp);
+                */
+                //testEintrag!
+                //  db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
+                Toast.makeText(getApplicationContext(), "Toast: Button pressed!",
+                        Toast.LENGTH_LONG).show();
+
+                db.Update(receivID,nameText,vornameText,nummerpText,nummermText,emailText,strasseText,plzText,ortText);
+                cursor=  db.selectAll();
+
+                save.hide();
+                setEditable();
+
+                //Eintrag per Felder in AddEdit
+
+            }
+        }
+    };
 }

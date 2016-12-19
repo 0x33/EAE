@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.EditText;
 
 public class MyDBManager extends SQLiteOpenHelper {
 
@@ -70,6 +71,23 @@ public class MyDBManager extends SQLiteOpenHelper {
     }
 
 
+    public void Update(int id ,EditText name,EditText vorname,EditText privn,EditText mobiln,EditText email,EditText strasse, EditText plz,EditText ort){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE "+TABELLE_MITGLIED+" SET "+
+
+
+                SPALTE_NAME + " = " +"'"+ name.getText().toString()+"'" + " , "+
+                SPALTE_VORNAME + " = "+"'" + vorname.getText().toString()+"'" + " , "+
+                SPALTE_PRIVATNR + " = "+"'" + privn.getText().toString()+"'" + " , "+
+                SPALTE_MOBILNR + " = "+"'"+ mobiln.getText().toString()+"'" + " , "+
+                SPALTE_EMAIL + " = "+"'" + email.getText().toString()+"'"+ " , "+
+                SPALTE_STRASSE + " = "+"'" + strasse.getText().toString()+"'"+ " , "+
+                SPALTE_PLZ + " = "+"'" + plz.getText().toString()+"'" + " , "+
+                SPALTE_ORT + " = "+"'" + ort.getText().toString()+"'" +
+                 " WHERE "+ SPALTE_MITGLIED_NR+ " = " + id );
+        //SPALTE_STATUS + " = " + status.getText().toString()+
+
+    }
 
     public Cursor selectAll(){
         SQLiteDatabase db = this.getWritableDatabase();
