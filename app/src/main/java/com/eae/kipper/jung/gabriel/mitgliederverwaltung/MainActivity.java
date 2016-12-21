@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         /*TODO----------------------++++++++######
             Sortierung (per Globale Variable
-            Toast
             Logs
             Kommentare
             STATUS mitspeichern..Laden
@@ -93,8 +92,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
+    //Menü einfügen
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -103,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    // Hinzufügen FAB Aktion
     View.OnClickListener handler = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -113,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
                    }
     };
 
+    //Sortierungs-Menü
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.sort_Name:

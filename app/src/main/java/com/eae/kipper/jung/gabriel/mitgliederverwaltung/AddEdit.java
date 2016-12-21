@@ -15,8 +15,6 @@ import android.widget.Toast;
 
 public class AddEdit extends AppCompatActivity {
 
-    //TextView test;
-
     FloatingActionButton save;
     EditText nameInputText, vornameInputText, nummerPrivatInputText, nummerMobilInputText, emailInputText, strasseInputText, plzInputText, ortInputText;
     MyDBManager db = new MyDBManager(this);
@@ -31,7 +29,6 @@ public class AddEdit extends AppCompatActivity {
         save = (FloatingActionButton)findViewById(R.id.foating_save);
         save.setOnClickListener(handler);
         save.hide();
-        //updateSaveFAB();
 
         nameInputText = (EditText)findViewById(R.id.Input_Text_Name);
         vornameInputText = (EditText)findViewById(R.id.Input_Text_Vorname);
@@ -44,28 +41,7 @@ public class AddEdit extends AppCompatActivity {
 
         nameInputText.addTextChangedListener(new TextChangeManager(textvalid,0));
         vornameInputText.addTextChangedListener(new TextChangeManager(textvalid,1));
-
-
-
-
-
-/*  UNNÖTIG? zumindest in der Form.. toDELETE
-        nameInputText.toString();
-        vornameInputText.toString();
-        nummerPrivatInputText.toString();
-        nummerMobilInputText.toString();
-        emailInputText.toString();
-        strasseInputText.toString();
-        plzInputText.toString();
-        ortInputText.toString();
-
-        test = (TextView)findViewById(R.id.testString);
-        */
     }
-
-
-
-
 
 public class TextChangeManager implements TextWatcher{
      boolean[] valid;
@@ -82,6 +58,7 @@ public class TextChangeManager implements TextWatcher{
 
     }
 
+    //Speichern FAB erscheint nur, wenn Name & Vorname nicht leer sind
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
         if(s.length()>=1){
@@ -110,30 +87,12 @@ public class TextChangeManager implements TextWatcher{
 
     }
 }
-
-
-
-
-
-
-
+    //Speichern FAB Aktion
     View.OnClickListener handler = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if(v.getId() == save.getId()){
-                /*
-                Intent intent = new Intent(getApplicationContext(), Details.class);
-                startActivity(intent);
-
-                String name = nameInputText.getText().toString();
-                String vname = vornameInputText.getText().toString();
-                String nummerp = nummerPrivatInputText.getText().toString();
-
-                test.setText(name + " " + vname + " " + nummerp);
-                */
-                //testEintrag!
-              //  db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
-                Toast.makeText(getApplicationContext(), "R.string.mitglied_hinzugefuegt",
+                Toast.makeText(getApplicationContext(), R.string.mitglied_hinzugefuegt,
                         Toast.LENGTH_LONG).show();
 
 
@@ -155,18 +114,4 @@ public class TextChangeManager implements TextWatcher{
         }
     };
 
-    //FAB erscheint nur, wenn mitglied ein name und vorname zugeiesen wurde
-    private void updateSaveFAB() {
-
-        /*String inputName = nameInputText.toString();
-        String inputVname = vornameInputText.toString();
-
-        if (inputName.trim().length() != 0 && inputVname.trim().length() != 0)
-            save.show();
-        else
-            save.hide();
-            */
-
-        save.show();
-    }
 }
