@@ -146,44 +146,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="@string/text_mitgliederstatus"
-                    android:textColorHint="@color/lightgrey"
-                    android:ems="10"
-                    android:textSize="18sp"
-                    android:layout_weight="1" />
 
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
-
-                    <RadioButton
-                        android:text="@string/text_aktiv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/rb_aktiv"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:textSize="18sp"
-                        android:textColor="@color/lightgrey"
-                        android:checked="true"/>
-
-                    <RadioButton
-                        android:text="@string/text_passiv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/rb_passiv"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:textSize="18sp"
-                        android:textColor="@color/lightgrey" />
-
-                </RadioGroup>
             </LinearLayout>
 
         </LinearLayout>
