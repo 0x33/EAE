@@ -12,9 +12,6 @@
     <string name="hint_strasse">Straße</string>
     <string name="hint_plz">PLZ</string>
     <string name="hint_ort">Ort</string>
-    <string name="text_mitgliederstatus">Mitgliederstatus</string>
-    <string name="text_aktiv">aktiv</string>
-    <string name="text_passiv">passiv</string>
     <string name="label_name">Name:</string>
     <string name="label_vorname">Vorname:</string>
     <string name="label_nummer_privat">Nummer Privat:</string>
