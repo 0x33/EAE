@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
             Sortierung (per Globale Variable
             Logs
             Kommentare
-            LOGO
 
         */
         super.onCreate(savedInstanceState);
