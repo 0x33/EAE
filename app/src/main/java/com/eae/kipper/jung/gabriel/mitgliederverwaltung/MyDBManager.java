@@ -26,7 +26,6 @@ public class MyDBManager extends SQLiteOpenHelper {
     public static final String SPALTE_STRASSE ="strasse";
     public static final String SPALTE_PLZ = "plz";
     public static final String SPALTE_ORT = "ort";
-    public static final String SPALTE_STATUS = "status";
 
     public MyDBManager(Context cxt){
         super(cxt, DATENBANK_NAMEN, null, DATENBANK_VERSION);
@@ -49,7 +48,6 @@ public class MyDBManager extends SQLiteOpenHelper {
                         SPALTE_STRASSE + " TEXT," +
                         SPALTE_PLZ + " TEXT," +
                         SPALTE_ORT + " TEXT," +
-                        SPALTE_STATUS + " TEXT" +
                         ")"
         );
 
@@ -85,7 +83,7 @@ public class MyDBManager extends SQLiteOpenHelper {
                 SPALTE_PLZ + " = "+"'" + plz.getText().toString()+"'" + " , "+
                 SPALTE_ORT + " = "+"'" + ort.getText().toString()+"'" +
                  " WHERE "+ SPALTE_MITGLIED_NR+ " = " + id );
-        //SPALTE_STATUS + " = " + status.getText().toString()+
+
 
     }
 
@@ -124,7 +122,6 @@ public class MyDBManager extends SQLiteOpenHelper {
         neueZeile.put(SPALTE_STRASSE, strasse);
         neueZeile.put(SPALTE_PLZ, plz);
         neueZeile.put(SPALTE_ORT, ort);
-        neueZeile.put(SPALTE_STATUS, status);
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABELLE_MITGLIED,null,neueZeile);

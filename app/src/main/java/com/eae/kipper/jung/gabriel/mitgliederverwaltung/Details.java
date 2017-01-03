@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +54,7 @@ public class Details extends AppCompatActivity {
         strasseText = (EditText) findViewById(R.id.Text_Strasse);
         plzText = (EditText) findViewById(R.id.Text_Plz);
         ortText = (EditText) findViewById(R.id.Text_Ort);
+
 
         setEditable();
 
