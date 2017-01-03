@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         R.string.toast_sort_vorname,
                         Toast.LENGTH_LONG).show();
-                return true;
+                return true;//
         }
         return super.onOptionsItemSelected(item);
     }
