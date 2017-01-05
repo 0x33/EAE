@@ -54,7 +54,7 @@ public class MyDBManager extends SQLiteOpenHelper {
 
     }
 
-    public Cursor sortName(){
+    public Cursor sortName(boolean surnameAsc){
         SQLiteDatabase db = this.getReadableDatabase();
         SQLiteCursor meinZeiger = (SQLiteCursor) db.rawQuery("SELECT " +
                 SPALTE_MITGLIED_NR + " AS _id, " +
@@ -63,12 +63,12 @@ public class MyDBManager extends SQLiteOpenHelper {
                 "" + SPALTE_NAME + ", " +
                 "" + SPALTE_ORT+ ", " +
                 "" + SPALTE_PLZ +
-                " FROM " + TABELLE_MITGLIED +" ORDER BY "+ SPALTE_NAME+" ASC ",null);
+                " FROM " + TABELLE_MITGLIED +" ORDER BY "+ SPALTE_NAME+ (surnameAsc ? " ASC " : " DESC "),null);
         meinZeiger.moveToFirst();
         return meinZeiger;
 
     }
-    public Cursor sortVorname(){
+    public Cursor sortVorname(boolean nameAsc){
         SQLiteDatabase db = this.getReadableDatabase();
         SQLiteCursor meinZeiger = (SQLiteCursor) db.rawQuery("SELECT " +
                 SPALTE_MITGLIED_NR + " AS _id, " +
@@ -77,7 +77,7 @@ public class MyDBManager extends SQLiteOpenHelper {
                 "" + SPALTE_NAME + ", " +
                 "" + SPALTE_ORT+ ", " +
                 "" + SPALTE_PLZ +
-                " FROM " + TABELLE_MITGLIED +" ORDER BY "+ SPALTE_VORNAME+" ASC ",null);
+                " FROM " + TABELLE_MITGLIED +" ORDER BY "+ SPALTE_VORNAME+ (nameAsc ? " ASC " : " DESC "),null);
         meinZeiger.moveToFirst();
         return meinZeiger;
 
@@ -118,6 +118,8 @@ public class MyDBManager extends SQLiteOpenHelper {
 
 
     }
+
+
 
     public Cursor selectAll(){
         SQLiteDatabase db = this.getWritableDatabase();

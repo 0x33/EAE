@@ -8,4 +8,5 @@
     <item android:title="@string/menuitem_sort_vorname"
         android:id="@+id/sort_Vorname"
         android:showAsAction="never" />
+
 </menu>
