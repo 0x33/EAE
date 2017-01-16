@@ -63,7 +63,7 @@ public class MyDBManager extends SQLiteOpenHelper {
                 "" + SPALTE_NAME + ", " +
                 "" + SPALTE_ORT+ ", " +
                 "" + SPALTE_PLZ +
-                " FROM " + TABELLE_MITGLIED +" ORDER BY "+ SPALTE_NAME+ (surnameAsc ? " ASC " : " DESC "),null);
+                " FROM " + TABELLE_MITGLIED +" ORDER BY "+ "Upper("+ SPALTE_NAME+")" +(surnameAsc ? " ASC " : " DESC "),null);
         meinZeiger.moveToFirst();
         return meinZeiger;
 
@@ -78,13 +78,10 @@ public class MyDBManager extends SQLiteOpenHelper {
                 "" + SPALTE_NAME + ", " +
                 "" + SPALTE_ORT+ ", " +
                 "" + SPALTE_PLZ +
-                " FROM " + TABELLE_MITGLIED +" ORDER BY "+ SPALTE_VORNAME +(nameAsc ? " ASC " :" DESC ") ,null);
+                " FROM " + TABELLE_MITGLIED +" ORDER BY "+"Upper("+ SPALTE_VORNAME+")" +(nameAsc ? " ASC " :" DESC ") ,null);
         meinZeiger.moveToFirst();
         return meinZeiger;
-
     }
-
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
@@ -106,7 +103,6 @@ public class MyDBManager extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("UPDATE "+TABELLE_MITGLIED+" SET "+
 
-
                 SPALTE_NAME + " = " +"'"+ name.getText().toString()+"'" + " , "+
                 SPALTE_VORNAME + " = "+"'" + vorname.getText().toString()+"'" + " , "+
                 SPALTE_PRIVATNR + " = "+"'" + privn.getText().toString()+"'" + " , "+
@@ -116,11 +112,7 @@ public class MyDBManager extends SQLiteOpenHelper {
                 SPALTE_PLZ + " = "+"'" + plz.getText().toString()+"'" + " , "+
                 SPALTE_ORT + " = "+"'" + ort.getText().toString()+"'" +
                  " WHERE "+ SPALTE_MITGLIED_NR+ " = " + id );
-
-
     }
-
-
 
     public Cursor selectAll(){
         SQLiteDatabase db = this.getWritableDatabase();

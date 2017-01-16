@@ -27,24 +27,21 @@ import static com.eae.kipper.jung.gabriel.mitgliederverwaltung.MyDBManager.DATEN
 
 public class Details extends AppCompatActivity {
 
-
-
     EditText nameText, vornameText, nummerpText, nummermText, emailText, strasseText, plzText, ortText;
     MyDBManager db;
     Cursor cursor;
     int receivID;
 
     FloatingActionButton save;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        //TODO FloatingActionButton
         save = (FloatingActionButton)findViewById(R.id.foating_save);
         save.setOnClickListener(handler);
         save.hide();
-
 
         nameText = (EditText) findViewById(R.id.Text_Name);
         vornameText = (EditText) findViewById(R.id.Text_Vorname);
@@ -55,23 +52,16 @@ public class Details extends AppCompatActivity {
         plzText = (EditText) findViewById(R.id.Text_Plz);
         ortText = (EditText) findViewById(R.id.Text_Ort);
 
-
         setEditable();
-
-
-
 
         Intent receiver = getIntent();
         receivID = receiver.getIntExtra("ID", 1);
 
-
         db = new MyDBManager(this);
         cursor = db.selectData(receivID);
 
-
         cursor.moveToFirst();
         showValues();
-
     }
     public void setEditable(){
         nameText.setInputType(InputType.TYPE_NULL);
@@ -84,13 +74,10 @@ public class Details extends AppCompatActivity {
         ortText.setInputType(InputType.TYPE_NULL);
     }
 
-
     public void showValues() {
-
         Log.e("Anzahl",": "+cursor.getColumnCount());
         Log.e("Count",": "+cursor.getColumnCount());
         Log.e("CName",": "+cursor.getColumnName(0));
-
 
         String id = cursor.getString(0).toString();
         String name= cursor.getString(1);
@@ -102,7 +89,6 @@ public class Details extends AppCompatActivity {
         String plz = cursor.getString(7);
         String ort = cursor.getString(8);
 
-
         nameText.setText(name);
         vornameText.setText(vorname);
         nummerpText.setText(pnr);
@@ -111,7 +97,6 @@ public class Details extends AppCompatActivity {
         strasseText.setText(strasse);
         plzText.setText(plz);
         ortText.setText(ort);
-
     }
 
     @Override
@@ -125,8 +110,6 @@ public class Details extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_edit:
-              //  Intent intent = new Intent(getApplicationContext(), AddEdit.class);
-              //  startActivity(intent);
                 editContact();
 
                 return true;
@@ -142,7 +125,6 @@ public class Details extends AppCompatActivity {
             cursor.moveToNext();
 
         showValues();
-
     }
 
     public void movePrev() {
@@ -167,8 +149,6 @@ public class Details extends AppCompatActivity {
         openKeyboard();
 
         save.show();
-        //TODO AddHandler
-
     }
 
     //Kontakt löschen
@@ -187,14 +167,11 @@ public class Details extends AppCompatActivity {
                         db.deleteRow(receivID);
                       cursor=  db.selectAll();
 
-
                         Toast.makeText(getApplicationContext(),
                                 R.string.toast_loschen,
                                 Toast.LENGTH_LONG).show();
 
                         Details.this.finish();
-
-
                     }
                 });
 
@@ -227,9 +204,6 @@ public class Details extends AppCompatActivity {
                 closeKeyboard();
 
                 setEditable();
-
-                //Eintrag per Felder in AddEdit
-
             }
         }
     };

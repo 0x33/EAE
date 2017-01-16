@@ -21,6 +21,7 @@ public class AddEdit extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit);
 
@@ -43,19 +44,17 @@ public class AddEdit extends AppCompatActivity {
         vornameInputText.addTextChangedListener(new TextChangeManager(textvalid,1));
     }
 
-public class TextChangeManager implements TextWatcher{
-     boolean[] valid;
-     int index;
+    public class TextChangeManager implements TextWatcher{
+        boolean[] valid;
+        int index;
 
     public TextChangeManager(final boolean[] valid,int index){
         this.valid=valid;
         this.index = index;
-
     }
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
     }
 
     //Speichern FAB erscheint nur, wenn Name & Vorname nicht leer sind
@@ -71,20 +70,16 @@ public class TextChangeManager implements TextWatcher{
         boolean visible = true;
         for(int i = 0;i<valid.length;i++){
             visible=visible&&valid[i];
-
-
         }
         if(visible){
             save.show();
         }else{
             save.hide();
         }
-
     }
 
     @Override
     public void afterTextChanged(Editable s) {
-
     }
 }
     //Speichern FAB Aktion
@@ -94,7 +89,6 @@ public class TextChangeManager implements TextWatcher{
             if(v.getId() == save.getId()){
                 Toast.makeText(getApplicationContext(), R.string.mitglied_hinzugefuegt,
                         Toast.LENGTH_LONG).show();
-
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
@@ -108,10 +102,7 @@ public class TextChangeManager implements TextWatcher{
                         strasseInputText.getText().toString(),
                         plzInputText.getText().toString(),
                         ortInputText.getText().toString());
-
-
             }
         }
     };
-
 }
