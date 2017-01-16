@@ -38,22 +38,22 @@ public class MyDBManager extends SQLiteOpenHelper {
         //Tabellen mit Grunddaten füllen
 
         db.execSQL(
-                "CREATE TABLE " + TABELLE_MITGLIED + " (" +
-                        SPALTE_MITGLIED_NR + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "CREATE TABLE " + TABELLE_MITGLIED + " ( " +
+                        SPALTE_MITGLIED_NR + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
 
-                        SPALTE_NAME + " TEXT," +
-                        SPALTE_VORNAME + " TEXT," +
+                        SPALTE_NAME     + " TEXT," +
+                        SPALTE_VORNAME  + " TEXT," +
                         SPALTE_PRIVATNR + " TEXT," +
-                        SPALTE_MOBILNR + " TEXT," +
-                        SPALTE_EMAIL + " TEXT," +
-                        SPALTE_STRASSE + " TEXT," +
-                        SPALTE_PLZ + " TEXT," +
-                        SPALTE_ORT + " TEXT," +
-                        ")"
+                        SPALTE_MOBILNR  + " TEXT," +
+                        SPALTE_EMAIL    + " TEXT," +
+                        SPALTE_STRASSE  + " TEXT," +
+                        SPALTE_PLZ      + " TEXT," +
+                        SPALTE_ORT      + " TEXT" +
+                        ");"
         );
 
     }
-
+    //boolean surnameAsc /(surnameAsc ? " ASC " : " DESC ")
     public Cursor sortName(boolean surnameAsc){
         SQLiteDatabase db = this.getReadableDatabase();
         SQLiteCursor meinZeiger = (SQLiteCursor) db.rawQuery("SELECT " +
@@ -68,6 +68,7 @@ public class MyDBManager extends SQLiteOpenHelper {
         return meinZeiger;
 
     }
+    //boolean nameAsc /
     public Cursor sortVorname(boolean nameAsc){
         SQLiteDatabase db = this.getReadableDatabase();
         SQLiteCursor meinZeiger = (SQLiteCursor) db.rawQuery("SELECT " +
@@ -77,7 +78,7 @@ public class MyDBManager extends SQLiteOpenHelper {
                 "" + SPALTE_NAME + ", " +
                 "" + SPALTE_ORT+ ", " +
                 "" + SPALTE_PLZ +
-                " FROM " + TABELLE_MITGLIED +" ORDER BY "+ SPALTE_VORNAME+ (nameAsc ? " ASC " : " DESC "),null);
+                " FROM " + TABELLE_MITGLIED +" ORDER BY "+ SPALTE_VORNAME +(nameAsc ? " ASC " :" DESC ") ,null);
         meinZeiger.moveToFirst();
         return meinZeiger;
 
@@ -146,7 +147,7 @@ public class MyDBManager extends SQLiteOpenHelper {
     }
 
 
-    public void insertMitglied(String name, String vorname, String privatnr, String mobilnr, String email, String strasse, String plz, String ort, String status){
+    public void insertMitglied(String name, String vorname, String privatnr, String mobilnr, String email, String strasse, String plz, String ort){
         ContentValues neueZeile = new ContentValues();
         neueZeile.put(SPALTE_NAME, name);
         neueZeile.put(SPALTE_VORNAME, vorname);

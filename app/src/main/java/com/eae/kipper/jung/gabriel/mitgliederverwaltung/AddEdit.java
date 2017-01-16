@@ -107,8 +107,8 @@ public class TextChangeManager implements TextWatcher{
                         emailInputText.getText().toString(),
                         strasseInputText.getText().toString(),
                         plzInputText.getText().toString(),
-                        ortInputText.getText().toString(),
-                        "aktiv");
+                        ortInputText.getText().toString());
+
 
             }
         }

@@ -48,8 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
         add = (FloatingActionButton) findViewById(R.id.foating_add);
         add.setOnClickListener(handler);
-        // db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt", "aktiv");
+
+       //db.insertMitglied("Mustermann", "Max", "0689511111", "017688888888", "kontakt@bla.bla", "Musterstraße 66", "66976", "MusterOrt" );
         //Start-CursorAdapter (2 Zeilige Liste!)        !NOT YET FINISHED!
+        //surnameAsc
 
         fillList(db.sortName(surnameAsc));
 
@@ -61,12 +63,12 @@ public class MainActivity extends AppCompatActivity {
 
         Log.e("Filllist", "Hier wird die Liste gefüllt");
 
-
+        /*
         do {
             for (int i = 0; i < c.getColumnCount(); i++) {
                 Log.d("CRS", "POS[" + i + "] " + c.getString(i));
             }
-        } while (c.moveToNext());
+        } while (c.moveToNext());*/
 
         c.moveToFirst();
 
@@ -149,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         R.string.toast_sort_name,
                         Toast.LENGTH_LONG).show();
+
                 fillList(db.sortName(surnameAsc));
                 return true;
             case R.id.sort_Vorname:
@@ -160,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         R.string.toast_sort_vorname,
                         Toast.LENGTH_LONG).show();
+
                 fillList(db.sortVorname(nameAsc));
                 return true;//
         }
